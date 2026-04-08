@@ -941,7 +941,7 @@
         </button>
       </form>
       <div class="chat-hint">
-        Configure `CHAT_API_URL` e `CHAT_API_KEY` no script antes de publicar.
+        Publique esta pagina no mesmo dominio do backend e exponha o endpoint `/chat`.
       </div>
     </div>
 
@@ -953,12 +953,13 @@
   </div>
 
   <script>
-    const CHAT_API_URL = "https://ai-agent-production-f803.up.railway.app/chat";
-    const CHAT_API_KEY = "f8dd982b-5760-4dc5-9a2b-24e3792f1819";
+    const CHAT_API_URL = "/chat";
     const STORAGE_KEYS = {
       sessionId: "casa-aurora-chat-session-id",
       messages: "casa-aurora-chat-messages"
     };
+    const MAX_STORED_MESSAGES = 20;
+    const SEND_COOLDOWN_MS = 1200;
 
     const chatToggle = document.getElementById("chatToggle");
     const chatWindow = document.getElementById("chatWindow");
@@ -970,6 +971,7 @@
     let isChatOpen = false;
     let isLoading = false;
     let typingIndicator = null;
+    let lastSendAt = 0;
 
     function getSessionId() {
       const existing = localStorage.getItem(STORAGE_KEYS.sessionId);
@@ -984,7 +986,7 @@
 
     function loadMessages() {
       try {
-        const stored = localStorage.getItem(STORAGE_KEYS.messages);
+        const stored = sessionStorage.getItem(STORAGE_KEYS.messages);
         const parsed = stored ? JSON.parse(stored) : null;
         if (Array.isArray(parsed) && parsed.length > 0) {
           return parsed;
@@ -1002,7 +1004,8 @@
     }
 
     function saveMessages(messages) {
-      localStorage.setItem(STORAGE_KEYS.messages, JSON.stringify(messages));
+      const safeMessages = messages.slice(-MAX_STORED_MESSAGES);
+      sessionStorage.setItem(STORAGE_KEYS.messages, JSON.stringify(safeMessages));
     }
 
     let messages = loadMessages();
@@ -1048,6 +1051,7 @@
 
     function appendMessage(role, content, persist = true) {
       messages.push({ role, content });
+      messages = messages.slice(-MAX_STORED_MESSAGES);
       if (persist) {
         saveMessages(messages);
       }
@@ -1078,10 +1082,8 @@
     function isChatConfigured() {
       return (
         CHAT_API_URL &&
-        CHAT_API_KEY &&
         !CHAT_API_URL.includes("SEU-ENDPOINT-RAILWAY") &&
-        CHAT_API_URL.startsWith("https://") &&
-        CHAT_API_KEY !== "SUA_CHAVE_INTERNA"
+        (CHAT_API_URL.startsWith("/") || CHAT_API_URL.startsWith("https://"))
       );
     }
 
@@ -1094,10 +1096,20 @@
       if (!isChatConfigured()) {
         appendMessage(
           "system",
-          "Configure o endpoint real do Railway e a chave interna no script antes de usar o chat."
+          "Configure o endpoint real do chat antes de usar o assistente."
         );
         return;
       }
+
+      if (Date.now() - lastSendAt < SEND_COOLDOWN_MS) {
+        appendMessage(
+          "system",
+          "Aguarde um instante antes de enviar outra mensagem."
+        );
+        return;
+      }
+
+      lastSendAt = Date.now();
 
       appendMessage("user", trimmed);
       setLoading(true);
@@ -1106,8 +1118,7 @@
         const response = await fetch(CHAT_API_URL, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
-            "x-api-key": CHAT_API_KEY
+            "Content-Type": "application/json"
           },
           body: JSON.stringify({
             sessionId: getSessionId(),
