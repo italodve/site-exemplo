@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://ai-agent-production-f803.up.railway.app; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <title>Casa Aurora | Loja Local Brasileira</title>
   <meta
     name="description"
@@ -953,10 +956,13 @@
     const CHAT_API_URL = "https://ai-agent-production-f803.up.railway.app/chat";
     const STORAGE_KEYS = {
       sessionId: "casa-aurora-chat-session-id",
+      sessionIdCreatedAt: "casa-aurora-chat-session-created-at",
       messages: "casa-aurora-chat-messages"
     };
     const MAX_STORED_MESSAGES = 20;
     const SEND_COOLDOWN_MS = 1200;
+    const SESSION_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+    const MAX_RENDERED_MESSAGE_LENGTH = 4000;
 
     const chatToggle = document.getElementById("chatToggle");
     const chatWindow = document.getElementById("chatWindow");
@@ -972,12 +978,20 @@
 
     function getSessionId() {
       const existing = localStorage.getItem(STORAGE_KEYS.sessionId);
-      if (existing) {
+      const createdAt = Number(localStorage.getItem(STORAGE_KEYS.sessionIdCreatedAt) || 0);
+
+      if (
+        existing &&
+        createdAt &&
+        Number.isFinite(createdAt) &&
+        Date.now() - createdAt < SESSION_MAX_AGE_MS
+      ) {
         return existing;
       }
 
       const sessionId = crypto.randomUUID();
       localStorage.setItem(STORAGE_KEYS.sessionId, sessionId);
+      localStorage.setItem(STORAGE_KEYS.sessionIdCreatedAt, String(Date.now()));
       return sessionId;
     }
 
@@ -1014,7 +1028,7 @@
       messages.forEach((message) => {
         const element = document.createElement("div");
         element.className = "message " + message.role;
-        element.textContent = message.content;
+        element.textContent = String(message.content || "").slice(0, MAX_RENDERED_MESSAGE_LENGTH);
         chatMessages.appendChild(element);
       });
 
@@ -1047,7 +1061,9 @@
     }
 
     function appendMessage(role, content, persist = true) {
-      messages.push({ role, content });
+      const allowedRole = role === "assistant" || role === "user" || role === "system" ? role : "system";
+      const safeContent = String(content || "").slice(0, MAX_RENDERED_MESSAGE_LENGTH);
+      messages.push({ role: allowedRole, content: safeContent });
       messages = messages.slice(-MAX_STORED_MESSAGES);
       if (persist) {
         saveMessages(messages);
@@ -1117,6 +1133,7 @@
           headers: {
             "Content-Type": "application/json"
           },
+          referrerPolicy: "no-referrer",
           body: JSON.stringify({
             sessionId: getSessionId(),
             message: trimmed
@@ -1132,7 +1149,9 @@
         }
 
         if (!response.ok) {
-          const errorMessage = getAssistantText(data) || "Nao foi possivel concluir o atendimento agora. Tente novamente em instantes.";
+          const errorMessage = response.status >= 500
+            ? "Nao foi possivel concluir o atendimento agora. Tente novamente em instantes."
+            : getAssistantText(data) || "Nao foi possivel concluir o atendimento agora. Tente novamente em instantes.";
           throw new Error(errorMessage);
         }
 
