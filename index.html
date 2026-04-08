@@ -957,12 +957,16 @@
     const STORAGE_KEYS = {
       sessionId: "casa-aurora-chat-session-id",
       sessionIdCreatedAt: "casa-aurora-chat-session-created-at",
-      messages: "casa-aurora-chat-messages"
+      messages: "casa-aurora-chat-messages",
+      chatToken: "casa-aurora-chat-token",
+      chatTokenExpiresAt: "casa-aurora-chat-token-expires-at",
+      chatTokenSessionId: "casa-aurora-chat-token-session-id"
     };
     const MAX_STORED_MESSAGES = 20;
     const SEND_COOLDOWN_MS = 1200;
     const SESSION_MAX_AGE_MS = 24 * 60 * 60 * 1000;
     const MAX_RENDERED_MESSAGE_LENGTH = 4000;
+    const CHAT_TOKEN_REFRESH_BUFFER_MS = 30 * 1000;
 
     const chatToggle = document.getElementById("chatToggle");
     const chatWindow = document.getElementById("chatWindow");
@@ -1017,6 +1021,67 @@
     function saveMessages(messages) {
       const safeMessages = messages.slice(-MAX_STORED_MESSAGES);
       sessionStorage.setItem(STORAGE_KEYS.messages, JSON.stringify(safeMessages));
+    }
+
+    function getChatApiBaseUrl() {
+      if (CHAT_API_URL.endsWith("/chat")) {
+        return CHAT_API_URL.slice(0, -5);
+      }
+
+      return CHAT_API_URL.replace(/\/+$/, "");
+    }
+
+    function clearStoredChatToken() {
+      sessionStorage.removeItem(STORAGE_KEYS.chatToken);
+      sessionStorage.removeItem(STORAGE_KEYS.chatTokenExpiresAt);
+      sessionStorage.removeItem(STORAGE_KEYS.chatTokenSessionId);
+    }
+
+    async function getChatToken(forceRefresh = false) {
+      const sessionId = getSessionId();
+      const storedToken = sessionStorage.getItem(STORAGE_KEYS.chatToken);
+      const storedExpiry = Number(sessionStorage.getItem(STORAGE_KEYS.chatTokenExpiresAt) || 0);
+      const storedSessionId = sessionStorage.getItem(STORAGE_KEYS.chatTokenSessionId);
+
+      if (
+        !forceRefresh &&
+        storedToken &&
+        storedSessionId === sessionId &&
+        Number.isFinite(storedExpiry) &&
+        storedExpiry - Date.now() > CHAT_TOKEN_REFRESH_BUFFER_MS
+      ) {
+        return storedToken;
+      }
+
+      const response = await fetch(getChatApiBaseUrl() + "/chat/session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify({ sessionId })
+      });
+
+      let data = null;
+
+      try {
+        data = await response.json();
+      } catch (parseError) {
+        data = null;
+      }
+
+      if (!response.ok || !data || typeof data.token !== "string") {
+        throw new Error(
+          getAssistantText(data) || "Nao foi possivel iniciar uma sessao segura do chat."
+        );
+      }
+
+      const expiresInMs = Number(data.expiresInMs || 0);
+      sessionStorage.setItem(STORAGE_KEYS.chatToken, data.token);
+      sessionStorage.setItem(STORAGE_KEYS.chatTokenExpiresAt, String(Date.now() + expiresInMs));
+      sessionStorage.setItem(STORAGE_KEYS.chatTokenSessionId, sessionId);
+
+      return data.token;
     }
 
     let messages = loadMessages();
@@ -1128,17 +1193,37 @@
       setLoading(true);
 
       try {
-        const response = await fetch(CHAT_API_URL, {
+        const sessionId = getSessionId();
+        let chatToken = await getChatToken(false);
+        let response = await fetch(CHAT_API_URL, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "X-Chat-Token": chatToken
           },
           referrerPolicy: "no-referrer",
           body: JSON.stringify({
-            sessionId: getSessionId(),
+            sessionId,
             message: trimmed
           })
         });
+
+        if (response.status === 401) {
+          clearStoredChatToken();
+          chatToken = await getChatToken(true);
+          response = await fetch(CHAT_API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Chat-Token": chatToken
+            },
+            referrerPolicy: "no-referrer",
+            body: JSON.stringify({
+              sessionId,
+              message: trimmed
+            })
+          });
+        }
 
         let data = null;
 
