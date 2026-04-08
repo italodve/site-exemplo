@@ -953,8 +953,8 @@
   </div>
 
   <script>
-    const CHAT_API_URL = "https://SEU-ENDPOINT-RAILWAY/chat";
-    const CHAT_API_KEY = "SUA_CHAVE_INTERNA";
+    const CHAT_API_URL = "https://ai-agent-production-f803.up.railway.app/chat";
+    const CHAT_API_KEY = "f8dd982b-5760-4dc5-9a2b-24e3792f1819";
     const STORAGE_KEYS = {
       sessionId: "casa-aurora-chat-session-id",
       messages: "casa-aurora-chat-messages"
@@ -1075,9 +1075,27 @@
       return "";
     }
 
+    function isChatConfigured() {
+      return (
+        CHAT_API_URL &&
+        CHAT_API_KEY &&
+        !CHAT_API_URL.includes("SEU-ENDPOINT-RAILWAY") &&
+        CHAT_API_URL.startsWith("https://") &&
+        CHAT_API_KEY !== "SUA_CHAVE_INTERNA"
+      );
+    }
+
     async function sendMessage(text) {
       const trimmed = text.trim();
       if (!trimmed || isLoading) {
+        return;
+      }
+
+      if (!isChatConfigured()) {
+        appendMessage(
+          "system",
+          "Configure o endpoint real do Railway e a chave interna no script antes de usar o chat."
+        );
         return;
       }
 
@@ -1114,9 +1132,16 @@
         appendMessage("assistant", reply);
       } catch (error) {
         console.error("Erro ao enviar mensagem:", error);
+        const message =
+          error instanceof TypeError
+            ? "Nao foi possivel conectar ao servidor do chat. Verifique se o endpoint esta publicado, se o CORS esta liberado e se a URL esta correta."
+            : error instanceof Error
+              ? error.message
+              : "Ocorreu um erro inesperado ao falar com o assistente.";
+
         appendMessage(
           "system",
-          error instanceof Error ? error.message : "Ocorreu um erro inesperado ao falar com o assistente."
+          message
         );
       } finally {
         setLoading(false);
