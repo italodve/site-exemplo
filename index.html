@@ -6,30 +6,31 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://ai-agent-production-f803.up.railway.app; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-  <title>Urban Itapevi | Moda Urbana e Casual</title>
+  <title>AC Ar Condicionado</title>
   <meta
     name="description"
-    content="Urban Itapevi: moda urbana e casual para homens e mulheres. Camisetas, calcas, bermudas, bones e acessorios com estilo e atendimento rapido pelo WhatsApp e chat."
+    content="AC Ar Condicionado: instalação, manutenção, limpeza e atendimento técnico para equipamentos residenciais e comerciais."
   >
   <style>
     :root {
-      --bg: #f0f0f0;
-      --surface: rgba(245, 245, 245, 0.78);
-      --surface-strong: #fafafa;
-      --text: #1a1a1a;
-      --muted: #555555;
-      --primary: #1a1a1a;
-      --primary-strong: #000000;
-      --secondary: #e53935;
-      --line: rgba(0, 0, 0, 0.08);
-      --success: #16a34a;
-      --danger: #dc2626;
-      --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.12);
-      --shadow-md: 0 18px 40px rgba(0, 0, 0, 0.08);
-      --shadow-sm: 0 10px 24px rgba(0, 0, 0, 0.06);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
+      --blue-900: #014778;
+      --blue-800: #00609a;
+      --blue-700: #0075b8;
+      --blue-600: #0787cf;
+      --blue-500: #17a4e6;
+      --cyan-200: #a9e8ff;
+      --ice: #effbff;
+      --white: #ffffff;
+      --ink: #092235;
+      --muted: #557389;
+      --line: rgba(6, 60, 96, 0.14);
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-soft: rgba(239, 251, 255, 0.82);
+      --success: #15b978;
+      --warning: #ffb020;
+      --shadow-lg: 0 24px 60px rgba(0, 64, 112, 0.18);
+      --shadow-md: 0 18px 42px rgba(0, 64, 112, 0.14);
+      --shadow-sm: 0 10px 24px rgba(0, 64, 112, 0.10);
       --container: 1180px;
     }
 
@@ -42,27 +43,11 @@
     }
 
     body {
-      margin: 0;
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(0, 0, 0, 0.06), transparent 30%),
-        radial-gradient(circle at top right, rgba(229, 57, 53, 0.08), transparent 24%),
-        linear-gradient(180deg, #fafafa 0%, #f0f0f0 55%, #e8e8e8 100%);
       min-height: 100vh;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 78%);
-      opacity: 0.35;
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f3fcff 0%, #ffffff 44%, #eaf8ff 100%);
     }
 
     h1, h2, h3, p {
@@ -87,63 +72,63 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(14px);
-      background: rgba(250, 250, 250, 0.7);
-      border-bottom: 1px solid rgba(31, 41, 55, 0.06);
+      background: rgba(255, 255, 255, 0.86);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 16px 0;
+      gap: 14px;
+      padding: 12px 0;
     }
 
     .brand {
       display: flex;
       align-items: center;
+      min-width: 0;
       gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
+      font-weight: 900;
+      color: var(--blue-900);
     }
 
-    .brand-badge {
+    .brand-mark {
       width: 52px;
       height: 52px;
-      border-radius: 16px;
+      flex: 0 0 auto;
       display: grid;
       place-items: center;
-      background: #fafafa;
-      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 999px;
+      background: linear-gradient(145deg, #20b5ee, #0068a9);
       box-shadow: var(--shadow-sm);
-      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.7);
     }
 
-    .brand-badge svg {
-      width: 100%;
-      height: 100%;
+    .brand-mark svg {
+      width: 42px;
+      height: 42px;
     }
 
     .brand-text {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      gap: 2px;
       line-height: 1.05;
+      min-width: 0;
     }
 
-    .brand-text span:first-child {
-      font-size: 1rem;
-      letter-spacing: 0.04em;
+    .brand-name {
+      font-size: 1.05rem;
+      letter-spacing: 0;
+      white-space: nowrap;
     }
 
-    .brand-text .brand-sub {
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      font-weight: 600;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      letter-spacing: 0.12em;
+    .brand-sub {
+      color: var(--blue-600);
+      font-size: 0.76rem;
       text-transform: uppercase;
-      margin-top: 2px;
+      letter-spacing: 0.08em;
     }
 
     .nav-links {
@@ -151,347 +136,523 @@
       gap: 18px;
       color: var(--muted);
       font-size: 0.95rem;
+      font-weight: 700;
     }
 
     .nav-cta,
     .button,
     .button-secondary,
-    .chat-send,
-    .chat-toggle {
+    .chat-toggle,
+    .chat-send {
       transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
     }
 
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: var(--surface-strong);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      box-shadow: var(--shadow-sm);
-      font-weight: 700;
-    }
-
-    .hero {
-      padding: 48px 0 36px;
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .hero-copy,
-    .hero-card,
-    .product-card,
-    .feature-card,
-    .cta-card {
-      position: relative;
-      border-radius: var(--radius-xl);
-      background: var(--surface);
-      border: 1px solid rgba(255, 255, 255, 0.48);
-      box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(16px);
-      overflow: hidden;
-    }
-
-    .hero-copy {
-      padding: 28px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      color: var(--secondary);
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 8vw, 5rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      max-width: 10ch;
-    }
-
-    .hero-copy p,
-    .section-title p,
-    .feature-card p,
-    .chat-header p,
-    .chat-hint {
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .hero-copy p {
-      margin-top: 18px;
-      max-width: 56ch;
-      font-size: 1rem;
-    }
-
-    .hero-actions,
-    .cta-actions,
-    .products,
-    .features {
-      display: grid;
-      gap: 12px;
-    }
-
+    .nav-cta,
     .button,
     .button-secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 54px;
-      padding: 14px 20px;
+      min-height: 48px;
       border-radius: 999px;
-      border: 0;
-      cursor: pointer;
-      font-weight: 700;
+      font-weight: 800;
+    }
+
+    .nav-cta {
+      flex: 0 0 auto;
+      padding: 12px 16px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--success), #0d9e66);
+      box-shadow: 0 12px 24px rgba(21, 185, 120, 0.24);
     }
 
     .button {
-      background: linear-gradient(135deg, var(--success), #22c55e);
-      color: #fff;
-      box-shadow: 0 18px 32px rgba(34, 197, 94, 0.28);
+      padding: 14px 20px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--success), #0b8f5e);
+      box-shadow: 0 18px 34px rgba(21, 185, 120, 0.26);
     }
 
     .button-secondary {
-      background: rgba(255, 255, 255, 0.72);
-      color: var(--text);
-      border: 1px solid rgba(31, 41, 55, 0.08);
+      padding: 14px 20px;
+      color: var(--blue-900);
+      background: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      box-shadow: var(--shadow-sm);
     }
 
+    .nav-cta:hover,
     .button:hover,
     .button-secondary:hover,
-    .nav-cta:hover,
     .chat-toggle:hover,
     .chat-send:hover {
       transform: translateY(-2px);
     }
 
+    .hero {
+      color: var(--white);
+      background:
+        linear-gradient(120deg, rgba(1, 71, 120, 0.94), rgba(0, 117, 184, 0.92)),
+        linear-gradient(180deg, var(--blue-700), var(--blue-800));
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      position: relative;
+      min-height: calc(100vh - 77px);
+      display: grid;
+      align-items: center;
+      gap: 28px;
+      padding: 42px 0 34px;
+    }
+
+    .hero-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0 -8vw 0 auto;
+      width: min(44vw, 560px);
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.15) 0 2px,
+          transparent 2px 22px
+        );
+      opacity: 0.42;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--blue-900);
+      background: rgba(255, 255, 255, 0.92);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin-top: 16px;
+      font-size: clamp(3rem, 10vw, 6.8rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .hero-copy p {
+      max-width: 58ch;
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .hero-prompts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .prompt-button,
+    .ticket-action,
+    .chat-shortcut {
+      border: 0;
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--blue-900);
+      background: rgba(255, 255, 255, 0.93);
+      box-shadow: var(--shadow-sm);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .prompt-button {
+      min-height: 54px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .prompt-button:hover,
+    .ticket-action:hover,
+    .chat-shortcut:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      background: var(--white);
+    }
+
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .stat,
-    .showcase-panel,
-    .showcase-mini,
-    .showcase-note,
-    .mini-card {
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(31, 41, 55, 0.05);
-      border-radius: var(--radius-md);
+      gap: 10px;
+      margin-top: 26px;
     }
 
     .stat {
+      min-height: 92px;
       padding: 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
     }
 
     .stat strong {
       display: block;
-      font-size: 1.15rem;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+      font-size: 1.25rem;
     }
 
     .stat span {
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.78);
       font-size: 0.92rem;
+      line-height: 1.35;
     }
 
-    .hero-card {
-      min-height: 420px;
-      padding: 18px;
+    .hero-logo {
+      width: min(100%, 440px);
+      justify-self: center;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      filter: drop-shadow(0 32px 32px rgba(0, 24, 54, 0.24));
+    }
+
+    .hero-logo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-visual {
       display: grid;
       gap: 16px;
-      align-content: space-between;
+      justify-items: center;
     }
 
-    .showcase-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .showcase-top small,
-    .showcase-note small {
-      color: var(--muted);
-      display: block;
-      margin-top: 6px;
-      line-height: 1.5;
-    }
-
-    .showcase-grid {
+    .service-ticket {
+      width: min(100%, 420px);
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
       gap: 14px;
-    }
-
-    .showcase-panel,
-    .showcase-mini,
-    .showcase-note {
       padding: 18px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow-lg);
     }
 
-    .showcase-panel {
-      position: relative;
-      min-height: 220px;
+    .ticket-head {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(250, 250, 250, 0.9), rgba(230, 230, 230, 0.8)),
-        radial-gradient(circle at top right, rgba(229, 57, 53, 0.1), transparent 40%);
+      gap: 14px;
+      align-items: flex-start;
     }
 
-    .showcase-panel-illustration {
-      position: absolute;
-      right: -12px;
-      bottom: -8px;
-      width: 140px;
-      height: 140px;
-      opacity: 0.95;
-      pointer-events: none;
+    .ticket-head span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
 
-    .showcase-panel > div,
-    .showcase-panel > strong {
-      position: relative;
-      z-index: 1;
-    }
-
-    .price-badge,
-    .pill {
-      display: inline-flex;
-      align-self: flex-start;
-      padding: 10px 14px;
+    .ticket-status {
+      flex: 0 0 auto;
+      padding: 7px 10px;
       border-radius: 999px;
-      background: #fff;
-      font-weight: 800;
-      box-shadow: var(--shadow-sm);
+      color: #07563d;
+      background: rgba(21, 185, 120, 0.14);
+      font-size: 0.82rem;
+      font-weight: 900;
     }
 
-    .price-badge {
-      color: var(--primary-strong);
+    .ticket-rows {
+      display: grid;
+      gap: 8px;
     }
 
-    .showcase-mini {
+    .ticket-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .ticket-row strong {
+      color: var(--blue-900);
+    }
+
+    .ticket-action {
+      min-height: 48px;
+      border-radius: 8px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-800));
+    }
+
+    .quick-service {
+      position: relative;
+      margin-top: -18px;
+      color: var(--ink);
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 24px 54px rgba(0, 64, 112, 0.08);
+    }
+
+    .quick-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .quick-item {
+      min-height: 122px;
+      padding: 22px;
+      background: var(--white);
+      display: grid;
+      gap: 8px;
+      align-content: center;
+    }
+
+    .quick-item strong {
+      color: var(--blue-900);
+      font-size: 1.06rem;
+    }
+
+    .quick-item p,
+    .emergency-strip p,
+    .section-title p,
+    .service-card p,
+    .feature-card p,
+    .about-copy p,
+    .cta-panel p,
+    .chat-header p,
+    .chat-hint {
+      color: var(--muted);
+      line-height: 1.66;
+    }
+
+    .emergency-strip {
+      color: var(--ink);
+      background: #fff8e7;
+      border-bottom: 1px solid rgba(255, 176, 32, 0.36);
+    }
+
+    .emergency-inner {
       display: grid;
       gap: 12px;
-      align-content: start;
+      align-items: center;
+      padding: 16px 0;
     }
 
-    .mini-card {
-      padding: 14px;
+    .emergency-inner strong {
+      color: #7a4a00;
+      font-size: 1.02rem;
     }
 
-    .section {
-      padding: 26px 0;
-    }
-
-    .section-title {
-      margin-bottom: 18px;
-      display: grid;
+    .emergency-actions {
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
     }
 
+    .mini-action {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: var(--blue-900);
+      background: var(--white);
+      border: 1px solid rgba(255, 176, 32, 0.38);
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(122, 74, 0, 0.08);
+    }
+
+    .section {
+      padding: 54px 0;
+    }
+
+    .section-title {
+      display: grid;
+      gap: 12px;
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+
     .section-title h2,
-    .cta-card h2 {
-      font-size: clamp(1.85rem, 5vw, 3rem);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
+    .cta-panel h2 {
+      color: var(--blue-900);
+      font-size: clamp(2rem, 5vw, 3.35rem);
+      line-height: 1;
+      letter-spacing: 0;
     }
 
-    .product-card {
-      overflow: hidden;
+    .services,
+    .features {
+      display: grid;
+      gap: 14px;
     }
 
-    .product-visual {
-      position: relative;
-      min-height: 210px;
+    .service-card,
+    .feature-card,
+    .cta-panel {
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .service-card {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .service-visual {
+      min-height: 176px;
       padding: 18px;
       display: flex;
       align-items: flex-end;
       background-size: cover;
       background-position: center;
-      overflow: hidden;
     }
 
-    .product-illustration {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 120px;
-      height: 120px;
-      transform: translate(-50%, -58%);
-      pointer-events: none;
-    }
-
-    .product-visual.one {
+    .service-visual.install {
       background:
-        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), transparent 60%),
-        linear-gradient(135deg, #2d2d2d 0%, #3a3a3a 55%, #4a4a4a 100%);
+        linear-gradient(135deg, rgba(0, 85, 139, 0.70), rgba(23, 164, 230, 0.58)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 400'%3E%3Crect width='640' height='400' fill='%23dff7ff'/%3E%3Crect x='90' y='80' width='460' height='120' rx='18' fill='%23ffffff'/%3E%3Crect x='120' y='112' width='245' height='16' rx='8' fill='%2394dff8'/%3E%3Crect x='120' y='146' width='320' height='12' rx='6' fill='%23c9eefb'/%3E%3Ccircle cx='496' cy='140' r='28' fill='%230787cf'/%3E%3Cpath d='M170 226h300' stroke='%23014778' stroke-width='26' stroke-linecap='round' opacity='.18'/%3E%3Cpath d='M210 262h220' stroke='%23014778' stroke-width='20' stroke-linecap='round' opacity='.14'/%3E%3C/svg%3E");
     }
 
-    .product-visual.two {
+    .service-visual.clean {
       background:
-        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15), transparent 60%),
-        linear-gradient(135deg, #e53935 0%, #c62828 55%, #b71c1c 100%);
+        linear-gradient(135deg, rgba(0, 96, 154, 0.68), rgba(169, 232, 255, 0.48)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 400'%3E%3Crect width='640' height='400' fill='%23eefcff'/%3E%3Crect x='130' y='84' width='380' height='108' rx='18' fill='%23ffffff' stroke='%23bfeeff' stroke-width='6'/%3E%3Cpath d='M178 132h145M178 158h216' stroke='%230787cf' stroke-width='14' stroke-linecap='round'/%3E%3Cpath d='M430 222c48 0 86 38 86 86h-172c0-48 38-86 86-86Z' fill='%23a9e8ff'/%3E%3Cpath d='M430 250v82M386 286h88' stroke='%23ffffff' stroke-width='16' stroke-linecap='round'/%3E%3C/svg%3E");
     }
 
-    .product-visual.three {
+    .service-visual.repair {
       background:
-        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), transparent 60%),
-        linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 55%, #9e9e9e 100%);
+        linear-gradient(135deg, rgba(1, 71, 120, 0.76), rgba(7, 135, 207, 0.58)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 400'%3E%3Crect width='640' height='400' fill='%23e8f9ff'/%3E%3Crect x='88' y='86' width='420' height='106' rx='18' fill='%23ffffff'/%3E%3Cpath d='M130 138h210' stroke='%23bdeeff' stroke-width='16' stroke-linecap='round'/%3E%3Cpath d='M430 112l72 72M502 112l-72 72' stroke='%23014778' stroke-width='18' stroke-linecap='round' opacity='.3'/%3E%3Cpath d='M230 242l42-42 48 48-42 42-22-22-72 72-26-26 72-72Z' fill='%230787cf'/%3E%3C/svg%3E");
     }
 
-    .product-visual .pill {
-      position: relative;
-      z-index: 2;
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--primary-strong);
-      border: 1px solid rgba(0, 0, 0, 0.12);
-    }
-
-    .pill {
+    .service-visual .pill {
+      display: inline-flex;
       padding: 8px 12px;
-      font-size: 0.88rem;
+      border-radius: 999px;
+      color: var(--blue-900);
+      background: rgba(255, 255, 255, 0.94);
+      font-weight: 900;
+      box-shadow: var(--shadow-sm);
     }
 
-    .product-content,
+    .service-content,
     .feature-card,
-    .cta-card {
-      padding: 20px;
+    .cta-panel {
+      padding: 22px;
       display: grid;
       gap: 12px;
     }
 
-    .product-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .service-content h3,
+    .feature-card h3 {
+      color: var(--blue-900);
+      font-size: 1.3rem;
     }
 
-    .price {
-      color: var(--primary-strong);
-      font-weight: 800;
-      font-size: 1.1rem;
+    .service-list {
+      display: grid;
+      gap: 9px;
+      padding: 0;
+      margin: 2px 0 0;
+      list-style: none;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .service-list li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .service-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      margin-top: 7px;
+      border-radius: 999px;
+      background: var(--blue-500);
+    }
+
+    .service-cta {
+      width: fit-content;
+      margin-top: 4px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      color: var(--blue-900);
+      background: var(--ice);
+      font-weight: 900;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .service-cta:hover {
+      transform: translateY(-2px);
+      background: var(--white);
+    }
+
+    .about-band {
+      color: var(--white);
+      background:
+        linear-gradient(120deg, rgba(1, 71, 120, 0.94), rgba(0, 96, 154, 0.88)),
+        linear-gradient(180deg, var(--blue-800), var(--blue-900));
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .about-copy {
+      display: grid;
+      gap: 16px;
+    }
+
+    .about-copy h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1;
+    }
+
+    .about-copy p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .feature-card {
+      background: var(--surface-soft);
     }
 
     .feature-icon {
@@ -499,20 +660,27 @@
       height: 52px;
       display: grid;
       place-items: center;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(229, 57, 53, 0.16), rgba(26, 26, 26, 0.18));
-      color: var(--secondary);
-      font-weight: 800;
+      border-radius: 999px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-800));
+      font-weight: 900;
     }
 
     .cta {
-      padding: 34px 0 88px;
+      padding: 58px 0 96px;
     }
 
-    .cta-card {
+    .cta-panel {
       background:
-        radial-gradient(circle at top right, rgba(229, 57, 53, 0.1), transparent 28%),
-        linear-gradient(135deg, rgba(250, 250, 250, 0.92), rgba(255, 255, 255, 0.88));
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(239, 251, 255, 0.94)),
+        linear-gradient(180deg, #ffffff, #effbff);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cta-actions {
+      display: grid;
+      gap: 12px;
+      align-items: center;
     }
 
     .footer {
@@ -532,11 +700,11 @@
       width: 64px;
       height: 64px;
       border: 0;
-      border-radius: 22px;
+      border-radius: 18px;
       cursor: pointer;
-      color: #fff;
-      background: linear-gradient(135deg, #1a1a1a, #333333);
-      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-900));
+      box-shadow: 0 18px 34px rgba(0, 64, 112, 0.30);
     }
 
     .chat-toggle svg,
@@ -551,17 +719,17 @@
       position: absolute;
       right: 0;
       bottom: 80px;
-      width: min(calc(100vw - 24px), 380px);
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-radius: 28px;
+      width: min(calc(100vw - 24px), 390px);
       overflow: hidden;
-      box-shadow: 0 28px 60px rgba(15, 23, 42, 0.22);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      box-shadow: 0 28px 60px rgba(0, 45, 76, 0.26);
       backdrop-filter: blur(18px);
-      transform-origin: bottom right;
       opacity: 0;
       pointer-events: none;
-      transform: translateY(16px) scale(0.95);
+      transform: translateY(16px) scale(0.96);
+      transform-origin: bottom right;
       transition: opacity 220ms ease, transform 220ms ease;
     }
 
@@ -572,23 +740,29 @@
     }
 
     .chat-header {
-      padding: 18px 18px 16px;
-      color: #fff;
-      background: linear-gradient(135deg, #1a1a1a, #000000);
+      padding: 18px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-700), var(--blue-900));
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: flex-start;
     }
 
+    .chat-header p {
+      color: rgba(255, 255, 255, 0.78);
+      margin-top: 4px;
+      font-size: 0.92rem;
+    }
+
     .status-dot {
       width: 10px;
       height: 10px;
+      flex-shrink: 0;
+      margin-top: 6px;
       border-radius: 999px;
       background: #4ade80;
       box-shadow: 0 0 0 8px rgba(74, 222, 128, 0.16);
-      margin-top: 6px;
-      flex-shrink: 0;
     }
 
     .chat-messages {
@@ -598,42 +772,41 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      background:
-        linear-gradient(180deg, rgba(250, 250, 250, 0.75), rgba(240, 240, 240, 0.72));
+      background: linear-gradient(180deg, rgba(239, 251, 255, 0.84), rgba(255, 255, 255, 0.92));
     }
 
     .message {
       max-width: 86%;
       padding: 12px 14px;
-      border-radius: 18px;
+      border-radius: 16px;
       line-height: 1.55;
       font-size: 0.95rem;
-      animation: fadeUp 180ms ease;
       white-space: pre-wrap;
       word-break: break-word;
+      animation: fadeUp 180ms ease;
     }
 
     .message.assistant {
       align-self: flex-start;
-      background: #fff;
+      background: var(--white);
       border-bottom-left-radius: 6px;
       box-shadow: var(--shadow-sm);
     }
 
     .message.user {
       align-self: flex-end;
-      background: linear-gradient(135deg, #1a1a1a, #333333);
-      color: #fff;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-900));
       border-bottom-right-radius: 6px;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 14px 28px rgba(0, 64, 112, 0.22);
     }
 
     .message.system {
       align-self: center;
       text-align: center;
-      color: var(--danger);
-      background: rgba(254, 242, 242, 0.96);
-      border: 1px solid rgba(220, 38, 38, 0.12);
+      color: #b42318;
+      background: #fff1f0;
+      border: 1px solid rgba(180, 35, 24, 0.14);
       font-size: 0.9rem;
     }
 
@@ -647,7 +820,7 @@
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: rgba(26, 26, 26, 0.55);
+      background: rgba(0, 117, 184, 0.55);
       animation: bounce 1s infinite ease-in-out;
     }
 
@@ -664,34 +837,51 @@
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 10px;
-      border-top: 1px solid rgba(31, 41, 55, 0.07);
-      background: rgba(255, 255, 255, 0.94);
+      border-top: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .chat-shortcuts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 12px 14px 0;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .chat-shortcut {
+      min-height: 40px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 0.84rem;
+      box-shadow: none;
     }
 
     .chat-input {
       width: 100%;
       min-height: 52px;
       padding: 0 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(31, 41, 55, 0.1);
+      border-radius: 14px;
+      border: 1px solid var(--line);
       outline: none;
-      background: #fff;
+      background: var(--white);
       transition: border-color 180ms ease, box-shadow 180ms ease;
     }
 
     .chat-input:focus {
-      border-color: rgba(229, 57, 53, 0.48);
-      box-shadow: 0 0 0 4px rgba(229, 57, 53, 0.12);
+      border-color: rgba(7, 135, 207, 0.48);
+      box-shadow: 0 0 0 4px rgba(23, 164, 230, 0.14);
     }
 
     .chat-send {
       min-width: 52px;
       min-height: 52px;
       border: 0;
-      border-radius: 16px;
+      border-radius: 14px;
       cursor: pointer;
-      color: #fff;
-      background: linear-gradient(135deg, #e53935, #c62828);
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-800));
       box-shadow: var(--shadow-sm);
     }
 
@@ -704,7 +894,7 @@
     .chat-hint {
       padding: 0 16px 16px;
       font-size: 0.8rem;
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.96);
     }
 
     .sr-only {
@@ -736,29 +926,83 @@
       .hero-actions,
       .cta-actions {
         display: flex;
-        flex-direction: row;
       }
 
       .hero-grid {
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 1.08fr 0.92fr;
       }
 
-      .products,
+      .hero-visual {
+        justify-items: end;
+      }
+
+      .quick-grid,
+      .services,
       .features {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .cta-card {
+      .emergency-inner {
+        grid-template-columns: 1fr auto;
+      }
+
+      .about-grid {
+        grid-template-columns: 0.85fr 1.15fr;
+      }
+
+      .cta-panel {
         grid-template-columns: 1.1fr auto;
         align-items: center;
       }
     }
 
-    @media (min-width: 960px) {
-      .hero { padding: 56px 0 46px; }
-      .hero-copy { padding: 40px; }
-      .hero-card { padding: 22px; }
-      .section { padding: 44px 0; }
+    @media (max-width: 719px) {
+      .nav {
+        gap: 8px;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+      }
+
+      .brand-mark svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      .brand-name {
+        font-size: 0.92rem;
+      }
+
+      .brand-sub {
+        font-size: 0.68rem;
+      }
+
+      .nav-cta {
+        min-height: 42px;
+        padding: 10px 12px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-prompts {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        min-height: auto;
+      }
+
+      .hero-logo {
+        width: min(92vw, 360px);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -773,266 +1017,286 @@
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="Urban Itapevi">
-        <span class="brand-badge" aria-hidden="true">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="4" width="56" height="56" rx="12" fill="#1a1a1a"/>
-            <text x="32" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="24" fill="#ffffff">UI</text>
-            <line x1="14" y1="48" x2="50" y2="48" stroke="#e53935" stroke-width="3" stroke-linecap="round"/>
+      <a class="brand" href="#top" aria-label="AC Ar Condicionado">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="30" fill="none" stroke="#ffffff" stroke-width="4"/>
+            <path d="M40 16v48M20 40h40M25 25l30 30M55 25 25 55" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            <path d="M40 16l-7 8h14L40 16ZM40 64l7-8H33l7 8Z" fill="#ffffff"/>
           </svg>
         </span>
         <span class="brand-text">
-          <span>Urban Itapevi</span>
-          <span class="brand-sub">Street Style</span>
+          <span class="brand-name">AC Ar Condicionado</span>
+          <span class="brand-sub">Ar Condicionado</span>
         </span>
       </a>
+
       <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#produtos">Destaques</a>
+        <a href="#servicos">Serviços</a>
         <a href="#diferenciais">Diferenciais</a>
         <a href="#contato">Contato</a>
       </nav>
-      <a class="nav-cta" href="https://wa.me/5511986816589?text=Ola%2C%20quero%20atendimento%20da%20Urban%20Itapevi" target="_blank" rel="noopener noreferrer">
+
+      <a class="nav-cta" href="https://wa.me/5511986816589?text=Ola%2C%20quero%20atendimento%20da%20AC%20Ar%20Condicionado" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M19.05 4.91A9.82 9.82 0 0 0 12.02 2C6.58 2 2.15 6.4 2.15 11.84c0 1.74.45 3.44 1.31 4.94L2 22l5.37-1.41a9.88 9.88 0 0 0 4.65 1.18h.01c5.44 0 9.87-4.4 9.87-9.84a9.77 9.77 0 0 0-2.85-7.02Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M8.46 7.76c-.2-.46-.4-.47-.58-.48h-.49c-.17 0-.44.06-.67.31-.23.24-.88.86-.88 2.08 0 1.22.9 2.41 1.03 2.58.13.16 1.74 2.78 4.3 3.78 2.13.83 2.57.66 3.03.62.46-.05 1.49-.61 1.7-1.2.21-.59.21-1.09.15-1.2-.06-.1-.23-.16-.49-.29-.26-.12-1.49-.74-1.72-.82-.23-.08-.4-.12-.57.12-.17.24-.66.82-.8.99-.15.16-.3.18-.55.06-.26-.13-1.07-.39-2.04-1.25-.76-.68-1.27-1.51-1.42-1.76-.15-.24-.02-.37.11-.49.12-.12.26-.3.39-.45.13-.15.17-.24.26-.41.08-.16.04-.31-.02-.43-.06-.12-.57-1.37-.8-1.87Z" fill="currentColor"/>
+          <path d="M20 12a8 8 0 1 1-14.93-4.11L4 12l4.43-1.18A8 8 0 0 1 20 12Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9.2 10.1c.18-.25.36-.29.6-.18l1.13.52c.24.11.32.27.24.53-.08.26-.24.57-.06.8.19.24.83 1.06 1.95 1.56.27.12.47-.02.67-.2l.48-.45c.17-.16.38-.16.58-.06l1.11.55c.24.12.31.34.22.58-.37.95-1.2 1.53-2.17 1.42-1.1-.13-2.3-.74-3.63-1.95-1.55-1.4-2.22-2.67-2.34-3.78-.09-.83.43-1.66 1.22-2.34Z" fill="currentColor"/>
         </svg>
         WhatsApp
-      </a>
-      <a class="nav-cta" href="https://instagram.com/urbanitapevi" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/>
-          <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/>
-          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
-        </svg>
-        Instagram
       </a>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Streetwear • Casual • Acessorios • Calcados</span>
-          <h1>Urban Itapevi</h1>
-          <p>
-            Moda urbana e casual para quem curte estilo. Camisetas, calcas, bermudas, bones e acessorios para homens e mulheres. Vista-se com atitude e personalidade.
-          </p>
-          <div class="hero-actions">
-            <a class="button" href="https://wa.me/5511986816589?text=Ola%2C%20quero%20atendimento%20da%20Urban%20Itapevi" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M20 12a8 8 0 1 1-14.93-4.11L4 12l4.43-1.18A8 8 0 0 1 20 12Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9.2 10.1c.18-.25.36-.29.6-.18l1.13.52c.24.11.32.27.24.53-.08.26-.24.57-.06.8.19.24.83 1.06 1.95 1.56.27.12.47-.02.67-.2l.48-.45c.17-.16.38-.16.58-.06l1.11.55c.24.12.31.34.22.58-.37.95-1.2 1.53-2.17 1.42-1.1-.13-2.3-.74-3.63-1.95-1.55-1.4-2.22-2.67-2.34-3.78-.09-.83.43-1.66 1.22-2.34Z" fill="currentColor"/>
-              </svg>
-              Chamar no WhatsApp
-            </a>
-            <a class="button-secondary" href="https://instagram.com/urbanitapevi" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:18px;height:18px;">
-                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
-              </svg>
-              Siga no Instagram
-            </a>
-          </div>
-          <div class="hero-stats" aria-label="Indicadores da loja">
-            <div class="stat">
-              <strong>+500</strong>
-              <span>looks vendidos</span>
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Instalação • Manutenção • Higienização</span>
+            <h1>AC Ar Condicionado</h1>
+            <p>
+              Atendimento técnico para ar-condicionado, refrigeração residencial e equipamentos comerciais, com diagnóstico claro e serviço feito com cuidado.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="https://wa.me/5511986816589?text=Ola%2C%20quero%20atendimento%20da%20AC%20Ar%20Condicionado" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 12a8 8 0 1 1-14.93-4.11L4 12l4.43-1.18A8 8 0 0 1 20 12Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9.2 10.1c.18-.25.36-.29.6-.18l1.13.52c.24.11.32.27.24.53-.08.26-.24.57-.06.8.19.24.83 1.06 1.95 1.56.27.12.47-.02.67-.2l.48-.45c.17-.16.38-.16.58-.06l1.11.55c.24.12.31.34.22.58-.37.95-1.2 1.53-2.17 1.42-1.1-.13-2.3-.74-3.63-1.95-1.55-1.4-2.22-2.67-2.34-3.78-.09-.83.43-1.66 1.22-2.34Z" fill="currentColor"/>
+                </svg>
+                Solicitar atendimento
+              </a>
+              <a class="button-secondary" href="#servicos">Ver serviços</a>
             </div>
-            <div class="stat">
-              <strong>M & F</strong>
-              <span>masculino e feminino</span>
+            <div class="hero-prompts" aria-label="Atalhos de atendimento">
+              <button class="prompt-button" type="button" data-chat-prompt="Meu ar-condicionado não está gelando. Quero atendimento.">Não está gelando</button>
+              <button class="prompt-button" type="button" data-chat-prompt="Meu ar-condicionado está pingando água. Quero atendimento.">Está pingando</button>
+              <button class="prompt-button" type="button" data-chat-prompt="Quero instalar um ar-condicionado split.">Quero instalar</button>
+              <button class="prompt-button" type="button" data-chat-prompt="Quero agendar uma limpeza ou higienização.">Limpeza preventiva</button>
             </div>
-            <div class="stat">
-              <strong>4,8/5</strong>
-              <span>avaliacao dos clientes</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-card" aria-label="Resumo de destaques da loja">
-          <div class="showcase-top">
-            <div>
-              <strong>Destaques da semana</strong>
-              <small>As pecas mais procuradas em moda urbana, streetwear e acessorios.</small>
+            <div class="hero-stats" aria-label="Resumo de atendimento">
+              <div class="stat">
+                <strong>Split</strong>
+                <span>instalação e manutenção preventiva</span>
+              </div>
+              <div class="stat">
+                <strong>24h</strong>
+                <span>resposta rápida pelo atendimento online</span>
+              </div>
+              <div class="stat">
+                <strong>R/C</strong>
+                <span>residencial e comercial</span>
+              </div>
             </div>
           </div>
 
-          <div class="showcase-grid">
-            <div class="showcase-panel">
-              <svg class="showcase-panel-illustration" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- camiseta oversized -->
-                <g transform="translate(10,15) rotate(-6 60 60)">
-                  <path d="M38 22 Q38 16 44 16 L52 18 Q60 20 68 18 L76 16 Q82 16 82 22 L92 32 L86 42 L78 38 L78 100 Q78 106 72 106 L48 106 Q42 106 42 100 L42 38 L34 42 L28 32 Z" fill="#2d2d2d" stroke="#1a1a1a" stroke-width="1.8" stroke-linejoin="round"/>
-                  <path d="M52 18 Q60 24 68 18" fill="none" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round"/>
-                  <text x="60" y="68" text-anchor="middle" font-family="Arial" font-weight="900" font-size="12" fill="#e53935">URBAN</text>
+          <div class="hero-visual">
+            <div class="hero-logo" aria-label="Símbolo da AC Ar Condicionado">
+              <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle">
+                <title id="logoTitle">Floco de neve com setas circulares</title>
+                <defs>
+                  <linearGradient id="disc" x1="120" y1="70" x2="420" y2="470" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#7be1ff"/>
+                    <stop offset="0.48" stop-color="#0a91d2"/>
+                    <stop offset="1" stop-color="#00548d"/>
+                  </linearGradient>
+                  <linearGradient id="shine" x1="140" y1="86" x2="374" y2="360" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#ffffff" stop-opacity="0.42"/>
+                    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="260" cy="260" r="214" fill="#004f88" opacity="0.32"/>
+                <circle cx="246" cy="238" r="214" fill="url(#disc)" stroke="#8ee8ff" stroke-width="3"/>
+                <circle cx="218" cy="168" r="134" fill="url(#shine)"/>
+                <path d="M334 82c72 27 124 97 124 178 0 25-5 49-14 71" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+                <path d="M420 335l49 2-27 41-22-43Z" fill="#ffffff"/>
+                <path d="M190 438c-74-25-128-96-128-180 0-26 5-51 15-74" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+                <path d="M100 178l-49 1 28-40 21 39Z" fill="#ffffff"/>
+                <g fill="none" stroke="#ffffff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M260 132v256"/>
+                  <path d="M149 196l222 128"/>
+                  <path d="M371 196 149 324"/>
+                  <path d="M260 132l-28 34M260 132l28 34"/>
+                  <path d="M260 388l-28-34M260 388l28-34"/>
+                  <path d="M149 196l44 8M149 196l15 42"/>
+                  <path d="M371 324l-44-8M371 324l-15-42"/>
+                  <path d="M371 196l-15 42M371 196l-44 8"/>
+                  <path d="M149 324l15-42M149 324l44-8"/>
+                  <path d="M205 228l-42-19M205 228l-4-46"/>
+                  <path d="M315 292l42 19M315 292l4 46"/>
+                  <path d="M315 228l4-46M315 228l42-19"/>
+                  <path d="M205 292l-42 19M205 292l-4 46"/>
                 </g>
-                <!-- calca jogger -->
-                <g transform="translate(50,70)">
-                  <path d="M20 10 L60 10 L62 14 L58 14 L56 65 L60 80 L48 82 L44 68 L40 68 L36 82 L24 80 L28 65 L26 14 L22 14 Z" fill="#4a4a4a" stroke="#1a1a1a" stroke-width="1.6" stroke-linejoin="round"/>
-                  <path d="M20 10 L60 10" stroke="#1a1a1a" stroke-width="2"/>
-                  <circle cx="40" cy="16" r="1.5" fill="#888"/>
-                </g>
               </svg>
-              <div>
-                <span class="pill">Mais pedido</span>
-                <h3 style="margin-top: 14px; font-size: 1.45rem;">Combo Urban Style</h3>
-                <small>Camiseta oversized + calca jogger ou bermuda cargo. O combo perfeito pro dia a dia.</small>
-              </div>
-              <strong style="font-size: 2rem; letter-spacing: -0.03em;">R$ 129,90</strong>
             </div>
-            <div class="showcase-mini">
-              <div class="mini-card">
-                <strong>Entrega em Itapevi</strong>
-                <small>Receba suas pecas com praticidade e agilidade na regiao de Itapevi.</small>
+            <aside class="service-ticket" aria-label="Resumo para atendimento técnico">
+              <div class="ticket-head">
+                <div>
+                  <strong>Triagem rápida</strong>
+                  <span>Em poucos cliques você já envia o sintoma certo para o técnico.</span>
+                </div>
+                <span class="ticket-status">online</span>
               </div>
-              <div class="mini-card">
-                <strong>Estilo para todos</strong>
-                <small>Moda masculina e feminina com variedade de tamanhos e estilos urbanos.</small>
+              <div class="ticket-rows">
+                <div class="ticket-row"><span>Tempo médio</span><strong>1 minuto</strong></div>
+                <div class="ticket-row"><span>Dados pedidos</span><strong>equipamento + bairro</strong></div>
+                <div class="ticket-row"><span>Próximo passo</span><strong>WhatsApp</strong></div>
               </div>
-            </div>
-          </div>
-
-          <div class="showcase-note">
-            <strong>Atendimento com IA + humano</strong>
-            <small>Use o chat para tirar duvidas, ver opcoes de look e agilizar seu atendimento.</small>
+              <button class="ticket-action" type="button" data-chat-prompt="Olá, quero fazer uma triagem rápida para atendimento técnico.">Começar triagem</button>
+            </aside>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="produtos">
+    <section class="quick-service" aria-label="Serviços principais">
+      <div class="container quick-grid">
+        <article class="quick-item">
+          <strong>Ar gelando menos?</strong>
+          <p>Diagnóstico para baixa refrigeração, vazamentos, limpeza e falhas elétricas.</p>
+        </article>
+        <article class="quick-item">
+          <strong>Instalação bem feita</strong>
+          <p>Instalação de split com acabamento, testes e orientação de uso.</p>
+        </article>
+        <article class="quick-item">
+          <strong>Manutenção preventiva</strong>
+          <p>Limpeza, verificação de funcionamento e cuidado para aumentar a vida útil.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="emergency-strip" aria-label="Orientação de segurança">
+      <div class="container emergency-inner">
+        <div>
+          <strong>Cheiro de queimado, fumaça ou disjuntor desarmando?</strong>
+          <p>Desligue o equipamento com segurança e fale com atendimento técnico antes de tentar ligar novamente.</p>
+        </div>
+        <div class="emergency-actions">
+          <button class="mini-action" type="button" data-chat-prompt="Meu equipamento apresentou cheiro de queimado, fumaça ou desarmou o disjuntor. Preciso de orientação.">Abrir triagem</button>
+          <a class="mini-action" href="https://wa.me/5511986816589?text=Ola%2C%20meu%20equipamento%20apresentou%20risco%20eletrico%20ou%20cheiro%20de%20queimado%20e%20preciso%20de%20atendimento" target="_blank" rel="noopener noreferrer">WhatsApp direto</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
       <div class="container">
         <div class="section-title">
-          <span class="eyebrow">Produtos em destaque</span>
-          <h2>As categorias mais procuradas em moda urbana e casual</h2>
+          <span class="eyebrow">Serviços técnicos</span>
+          <h2>Soluções para manter seu ambiente frio, limpo e confortável</h2>
           <p>
-            Uma vitrine pensada para mostrar as linhas de maior interesse da loja, com compra facilitada pelo WhatsApp e atendimento direto.
+            A AC Ar Condicionado atende equipamentos residenciais e comerciais com foco em funcionamento correto, economia e segurança.
           </p>
         </div>
 
-        <div class="products">
-          <article class="product-card">
-            <div class="product-visual one">
-              <svg class="product-illustration" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- camiseta oversized -->
-                <path d="M38 25 Q38 19 44 17 Q50 19 60 19 Q70 19 76 17 Q82 19 82 25 L94 35 L88 47 L78 43 L78 95 Q78 100 73 100 L47 100 Q42 100 42 95 L42 43 L32 47 L26 35 Z" fill="#f5f5f5" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
-                <path d="M50 19 Q60 25 70 19" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round"/>
-                <text x="60" y="68" text-anchor="middle" font-family="Arial" font-weight="900" font-size="11" fill="#e53935">URBAN</text>
-                <line x1="46" y1="75" x2="74" y2="75" stroke="#ddd" stroke-width="1.2"/>
-              </svg>
-              <span class="pill">Camisetas</span>
+        <div class="services">
+          <article class="service-card">
+            <div class="service-visual install">
+              <span class="pill">Instalação</span>
             </div>
-            <div class="product-content">
-              <h3>Camisetas e Tops</h3>
-              <p>Camisetas oversized, cropped, basicas e estampadas para montar looks com estilo e conforto.</p>
-              <div class="product-meta">
-                <span>Masculino e feminino</span>
-                <span class="price">A partir de R$ 49,90</span>
-              </div>
+            <div class="service-content">
+              <h3>Instalação de ar-condicionado</h3>
+              <p>Instalação de equipamentos split com testes, vedação e conferência do sistema.</p>
+              <ul class="service-list">
+                <li>Passagem de tubulação e dreno</li>
+                <li>Teste de funcionamento</li>
+                <li>Orientação para uso correto</li>
+              </ul>
+              <button class="service-cta" type="button" data-chat-prompt="Quero instalar um ar-condicionado. Pode me orientar no atendimento?">Pedir instalação</button>
             </div>
           </article>
 
-          <article class="product-card">
-            <div class="product-visual two">
-              <svg class="product-illustration" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- calca jogger -->
-                <path d="M36 12 L84 12 L86 18 L80 18 L76 75 L82 100 L66 104 L60 82 L54 104 L38 100 L44 75 L40 18 L34 18 Z" fill="#f5f5f5" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
-                <path d="M36 12 L84 12" stroke="#fff" stroke-width="2.5"/>
-                <!-- cinto -->
-                <rect x="38" y="12" width="44" height="5" rx="2" fill="rgba(255,255,255,0.3)"/>
-                <circle cx="60" cy="14.5" r="2" fill="#fff" opacity="0.6"/>
-                <!-- bolsos cargo -->
-                <rect x="42" y="45" width="12" height="14" rx="2" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.5"/>
-                <rect x="66" y="45" width="12" height="14" rx="2" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.5"/>
-              </svg>
-              <span class="pill">Calcas</span>
+          <article class="service-card">
+            <div class="service-visual clean">
+              <span class="pill">Higienização</span>
             </div>
-            <div class="product-content">
-              <h3>Calcas e Bermudas</h3>
-              <p>Jogger, cargo, jeans e bermudas com cortes modernos para o dia a dia e rolezinho.</p>
-              <div class="product-meta">
-                <span>Todos os tamanhos</span>
-                <span class="price">A partir de R$ 79,90</span>
-              </div>
+            <div class="service-content">
+              <h3>Limpeza e manutenção</h3>
+              <p>Higienização do aparelho para melhorar o ar, reduzir mau cheiro e evitar sobrecarga.</p>
+              <ul class="service-list">
+                <li>Limpeza de filtros e evaporadora</li>
+                <li>Verificação preventiva</li>
+                <li>Mais eficiência no resfriamento</li>
+              </ul>
+              <button class="service-cta" type="button" data-chat-prompt="Quero agendar uma limpeza ou higienização do ar-condicionado.">Agendar limpeza</button>
             </div>
           </article>
 
-          <article class="product-card">
-            <div class="product-visual three">
-              <svg class="product-illustration" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- bone/cap -->
-                <path d="M20 62 Q20 42 60 38 Q100 42 100 62 L100 68 L20 68 Z" fill="#2d2d2d" stroke="#1a1a1a" stroke-width="1.8" stroke-linejoin="round"/>
-                <!-- aba do bone -->
-                <path d="M15 68 Q15 74 30 78 L100 78 Q108 78 108 72 L108 68 Z" fill="#1a1a1a" stroke="#111" stroke-width="1.5" stroke-linejoin="round"/>
-                <!-- detalhe vermelho -->
-                <rect x="50" y="44" width="20" height="3" rx="1.5" fill="#e53935"/>
-                <!-- costura central -->
-                <line x1="60" y1="38" x2="60" y2="62" stroke="#444" stroke-width="0.8" stroke-dasharray="3 2"/>
-                <!-- botao topo -->
-                <circle cx="60" cy="38" r="3" fill="#333" stroke="#222" stroke-width="1"/>
-              </svg>
-              <span class="pill">Acessorios</span>
+          <article class="service-card">
+            <div class="service-visual repair">
+              <span class="pill">Reparo</span>
             </div>
-            <div class="product-content">
-              <h3>Bones e Acessorios</h3>
-              <p>Bones, pochetes, meias, correntes e relogios para dar aquele toque final no visual urbano.</p>
-              <div class="product-meta">
-                <span>Unissex</span>
-                <span class="price">A partir de R$ 29,90</span>
-              </div>
+            <div class="service-content">
+              <h3>Conserto e diagnóstico</h3>
+              <p>Avaliação de falhas, ruídos, gotejamento, falta de gás e problemas elétricos.</p>
+              <ul class="service-list">
+                <li>Identificação do problema</li>
+                <li>Correção com transparência</li>
+                <li>Indicação do melhor próximo passo</li>
+              </ul>
+              <button class="service-cta" type="button" data-chat-prompt="Meu ar-condicionado está com problema e preciso de diagnóstico.">Solicitar diagnóstico</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="diferenciais">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Por que escolher a Urban Itapevi</span>
-          <h2>Uma experiencia de compra direta para quem busca estilo urbano com praticidade</h2>
-          <p>
-            A proposta da loja combina tendencias, atendimento rapido e variedade para todos os estilos.
-          </p>
+    <section class="section about-band" id="diferenciais">
+      <div class="container about-grid">
+        <div class="hero-logo" aria-hidden="true">
+          <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="260" cy="260" r="196" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.42)" stroke-width="3"/>
+            <path d="M342 118c58 30 98 90 98 160 0 18-3 36-8 52" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+            <path d="M410 336l38 2-22 32-16-34Z" fill="#ffffff"/>
+            <path d="M178 410c-58-30-98-90-98-160 0-18 3-36 8-52" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+            <path d="M110 192l-38-2 22-32 16 34Z" fill="#ffffff"/>
+            <g fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M260 146v228M161 203l198 114M359 203 161 317"/>
+              <path d="M260 146l-25 31M260 146l25 31M260 374l-25-31M260 374l25-31"/>
+              <path d="M161 203l39 7M161 203l13 38M359 317l-39-7M359 317l-13-38"/>
+              <path d="M359 203l-13 38M359 203l-39 7M161 317l13-38M161 317l39-7"/>
+            </g>
+          </svg>
         </div>
-
-        <div class="features">
-          <article class="feature-card">
-            <div class="feature-icon">01</div>
-            <h3>Estilo urbano com tendencias atuais</h3>
-            <p>Pecas selecionadas seguindo as principais tendencias do streetwear e moda casual.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">02</div>
-            <h3>Atendimento rapido por WhatsApp e chat</h3>
-            <p>Tire duvidas, veja opcoes e feche seu pedido de forma rapida e descomplicada.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">03</div>
-            <h3>Variedade para todos os estilos e tamanhos</h3>
-            <p>Moda masculina e feminina com opcoes que vao do basico ao streetwear mais estiloso.</p>
-          </article>
+        <div class="about-copy">
+          <span class="eyebrow">Atendimento claro</span>
+          <h2>Serviço técnico com foco no que resolve o problema</h2>
+          <p>
+            Antes de qualquer orçamento, o atendimento entende o equipamento, o sintoma e a urgência. Assim fica mais fácil orientar a melhor solução e evitar trocas desnecessárias.
+          </p>
+          <div class="features">
+            <article class="feature-card">
+              <div class="feature-icon">01</div>
+              <h3>Diagnóstico objetivo</h3>
+              <p>Você informa o problema e recebe uma orientação inicial antes da visita técnica.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">02</div>
+              <h3>Cuidados no acabamento</h3>
+              <p>Instalação e manutenção pensadas para preservar o ambiente e o equipamento.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">03</div>
+              <h3>Contato direto</h3>
+              <p>O chat coleta as informações e direciona o atendimento para o WhatsApp.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="cta" id="contato">
       <div class="container">
-        <div class="cta-card">
+        <div class="cta-panel">
           <div>
-            <span class="eyebrow">Fale conosco</span>
-            <h2>Fale com a Urban Itapevi e monte seu look com estilo</h2>
-            <p style="margin-top: 12px; color: var(--muted); line-height: 1.7;">
-              Chame no WhatsApp ou use o assistente para tirar duvidas, ver opcoes e agilizar seu pedido.
+            <span class="eyebrow">Fale com a AC</span>
+            <h2>Precisa instalar, limpar ou consertar seu ar-condicionado?</h2>
+            <p>
+              Chame pelo WhatsApp ou use o assistente para informar o modelo do aparelho, o problema e o melhor horário para atendimento.
             </p>
           </div>
           <div class="cta-actions">
-            <a class="button" href="https://wa.me/5511986816589?text=Ola%2C%20quero%20atendimento%20da%20Urban%20Itapevi" target="_blank" rel="noopener noreferrer">Pedir atendimento</a>
-            <a class="button-secondary" href="https://instagram.com/urbanitapevi" target="_blank" rel="noopener noreferrer">Siga no Instagram</a>
+            <a class="button" href="https://wa.me/5511986816589?text=Ola%2C%20quero%20atendimento%20da%20AC%20Ar%20Condicionado" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+            <a class="button-secondary" href="#top">Voltar ao topo</a>
           </div>
         </div>
       </div>
@@ -1041,7 +1305,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>Urban Itapevi • Moda urbana e casual com estilo e atendimento agil em Itapevi.</p>
+      <p>AC Ar Condicionado • Instalação, manutenção e atendimento técnico.</p>
     </div>
   </footer>
 
@@ -1049,13 +1313,20 @@
     <div class="chat-window" id="chatWindow" aria-hidden="true">
       <div class="chat-header">
         <div>
-          <strong>Assistente Urban Itapevi</strong>
-          <p>Pergunte sobre camisetas, calcas, bones, acessorios, tamanhos e sugestoes de look.</p>
+          <strong>Assistente AC Ar Condicionado</strong>
+          <p>Informe o equipamento, o problema e sua região para agilizar o atendimento.</p>
         </div>
         <span class="status-dot" aria-hidden="true"></span>
       </div>
 
       <div class="chat-messages" id="chatMessages" aria-live="polite" aria-label="Histórico de mensagens"></div>
+
+      <div class="chat-shortcuts" aria-label="Atalhos do chat">
+        <button class="chat-shortcut" type="button" data-chat-prompt="Meu ar-condicionado não está gelando.">Não gela</button>
+        <button class="chat-shortcut" type="button" data-chat-prompt="Meu ar-condicionado está pingando água.">Pingando</button>
+        <button class="chat-shortcut" type="button" data-chat-prompt="Quero instalar um ar-condicionado split.">Instalar</button>
+        <button class="chat-shortcut" type="button" data-chat-prompt="Quero agendar limpeza preventiva.">Limpeza</button>
+      </div>
 
       <form class="chat-form" id="chatForm">
         <label class="sr-only" for="chatInput">Digite sua mensagem</label>
@@ -1075,6 +1346,7 @@
           </svg>
         </button>
       </form>
+      <p class="chat-hint">O atendimento online não substitui avaliação técnica presencial quando necessário.</p>
     </div>
 
     <button class="chat-toggle" id="chatToggle" type="button" aria-label="Abrir chat">
@@ -1087,12 +1359,12 @@
   <script>
     const CHAT_API_URL = "https://ai-agent-production-f803.up.railway.app/chat";
     const STORAGE_KEYS = {
-      sessionId: "urban-itapevi-chat-session-id",
-      sessionIdCreatedAt: "urban-itapevi-chat-session-created-at",
-      messages: "urban-itapevi-chat-messages",
-      chatToken: "urban-itapevi-chat-token",
-      chatTokenExpiresAt: "urban-itapevi-chat-token-expires-at",
-      chatTokenSessionId: "urban-itapevi-chat-token-session-id"
+      sessionId: "ac-arcondicionado-chat-session-id",
+      sessionIdCreatedAt: "ac-arcondicionado-chat-session-created-at",
+      messages: "ac-arcondicionado-chat-messages",
+      chatToken: "ac-arcondicionado-chat-token",
+      chatTokenExpiresAt: "ac-arcondicionado-chat-token-expires-at",
+      chatTokenSessionId: "ac-arcondicionado-chat-token-session-id"
     };
     const MAX_STORED_MESSAGES = 20;
     const SEND_COOLDOWN_MS = 1200;
@@ -1139,13 +1411,13 @@
           return parsed;
         }
       } catch (error) {
-        console.error("Erro ao ler mensagens do localStorage:", error);
+        console.error("Erro ao ler mensagens do sessionStorage:", error);
       }
 
       return [
         {
           role: "assistant",
-          content: "Oi! Eu sou o assistente da Urban Itapevi. Posso ajudar com moda urbana, roupas masculinas e femininas, tamanhos e sugestoes de look."
+          content: "Olá! Sou o assistente da AC Ar Condicionado. Você precisa de instalação, manutenção, limpeza ou conserto?"
         }
       ];
     }
@@ -1204,7 +1476,7 @@
 
       if (!response.ok || !data || typeof data.token !== "string") {
         throw new Error(
-          getAssistantText(data) || "Nao foi possivel iniciar uma sessao segura do chat."
+          getAssistantText(data) || "Não foi possível iniciar uma sessão segura do chat."
         );
       }
 
@@ -1277,6 +1549,20 @@
       if (isChatOpen) {
         window.setTimeout(() => chatInput.focus(), 180);
       }
+    }
+
+    function startChatWithPrompt(prompt) {
+      const safePrompt = String(prompt || "").trim();
+      if (!safePrompt) {
+        return;
+      }
+
+      toggleChat(true);
+      chatInput.value = safePrompt;
+      window.setTimeout(() => {
+        chatInput.focus();
+        chatInput.setSelectionRange(chatInput.value.length, chatInput.value.length);
+      }, 180);
     }
 
     function getAssistantText(data) {
@@ -1367,8 +1653,8 @@
 
         if (!response.ok) {
           const errorMessage = response.status >= 500
-            ? "Nao foi possivel concluir o atendimento agora. Tente novamente em instantes."
-            : getAssistantText(data) || "Nao foi possivel concluir o atendimento agora. Tente novamente em instantes.";
+            ? "Não foi possível concluir o atendimento agora. Tente novamente em instantes."
+            : getAssistantText(data) || "Não foi possível concluir o atendimento agora. Tente novamente em instantes.";
           throw new Error(errorMessage);
         }
 
@@ -1378,7 +1664,7 @@
         console.error("Erro ao enviar mensagem:", error);
         const message =
           error instanceof TypeError
-            ? "Nao foi possivel conectar ao servidor do chat. Verifique se o endpoint esta publicado, se o CORS esta liberado e se a URL esta correta."
+            ? "Não foi possível conectar ao servidor do chat. Verifique se o endpoint está publicado, se o CORS está liberado e se a URL está correta."
             : error instanceof Error
               ? error.message
               : "Ocorreu um erro inesperado ao falar com o assistente.";
@@ -1395,6 +1681,12 @@
     }
 
     chatToggle.addEventListener("click", () => toggleChat());
+
+    document.querySelectorAll("[data-chat-prompt]").forEach((button) => {
+      button.addEventListener("click", () => {
+        startChatWithPrompt(button.getAttribute("data-chat-prompt"));
+      });
+    });
 
     chatForm.addEventListener("submit", async (event) => {
       event.preventDefault();
