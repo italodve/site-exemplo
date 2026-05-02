@@ -64,7 +64,7 @@
     }
 
     .container {
-      width: min(calc(100% - 32px), var(--container));
+      width: min(calc(100% - clamp(24px, 5vw, 48px)), var(--container));
       margin: 0 auto;
     }
 
@@ -200,11 +200,12 @@
 
     .hero-inner {
       position: relative;
-      min-height: calc(100vh - 77px);
+      min-height: calc(100svh - 77px);
+      min-height: calc(100dvh - 77px);
       display: grid;
       align-items: center;
-      gap: 28px;
-      padding: 42px 0 34px;
+      gap: clamp(20px, 4vw, 32px);
+      padding: clamp(28px, 6vw, 48px) 0 clamp(24px, 5vw, 40px);
     }
 
     .hero-inner::before {
@@ -245,10 +246,11 @@
     h1 {
       max-width: 12ch;
       margin-top: 16px;
-      font-size: clamp(3rem, 10vw, 6.8rem);
+      font-size: clamp(2.4rem, 9vw, 6.8rem);
       line-height: 0.92;
       letter-spacing: 0;
       text-transform: uppercase;
+      overflow-wrap: anywhere;
     }
 
     .hero-copy p {
@@ -487,7 +489,7 @@
     }
 
     .section {
-      padding: 54px 0;
+      padding: clamp(36px, 7vw, 64px) 0;
     }
 
     .section-title {
@@ -667,7 +669,7 @@
     }
 
     .cta {
-      padding: 58px 0 96px;
+      padding: clamp(40px, 7vw, 64px) 0 clamp(56px, 10vw, 96px);
     }
 
     .cta-panel {
@@ -681,6 +683,12 @@
       display: grid;
       gap: 12px;
       align-items: center;
+      grid-auto-flow: row;
+    }
+
+    .cta-actions .button,
+    .cta-actions .button-secondary {
+      width: 100%;
     }
 
     .footer {
@@ -691,8 +699,8 @@
 
     .chat-widget {
       position: fixed;
-      right: 18px;
-      bottom: 18px;
+      right: clamp(12px, 3vw, 18px);
+      bottom: clamp(12px, 3vw, 18px);
       z-index: 50;
     }
 
@@ -719,7 +727,8 @@
       position: absolute;
       right: 0;
       bottom: 80px;
-      width: min(calc(100vw - 24px), 390px);
+      width: min(calc(100vw - 32px), 390px);
+      max-height: calc(100dvh - 110px);
       overflow: hidden;
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.95);
@@ -766,7 +775,7 @@
     }
 
     .chat-messages {
-      height: 320px;
+      height: min(60vh, 360px);
       overflow-y: auto;
       padding: 16px;
       display: flex;
@@ -918,45 +927,7 @@
       40% { transform: scale(1); opacity: 1; }
     }
 
-    @media (min-width: 720px) {
-      .nav-links {
-        display: flex;
-      }
-
-      .hero-actions,
-      .cta-actions {
-        display: flex;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1.08fr 0.92fr;
-      }
-
-      .hero-visual {
-        justify-items: end;
-      }
-
-      .quick-grid,
-      .services,
-      .features {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .emergency-inner {
-        grid-template-columns: 1fr auto;
-      }
-
-      .about-grid {
-        grid-template-columns: 0.85fr 1.15fr;
-      }
-
-      .cta-panel {
-        grid-template-columns: 1.1fr auto;
-        align-items: center;
-      }
-    }
-
-    @media (max-width: 719px) {
+    @media (max-width: 720px) {
       .nav {
         gap: 8px;
       }
@@ -977,6 +948,8 @@
 
       .brand-name {
         font-size: 0.92rem;
+        white-space: normal;
+        line-height: 1.1;
       }
 
       .brand-sub {
@@ -989,6 +962,42 @@
       }
 
       .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .stat {
+        min-height: auto;
+        padding: 12px;
+      }
+
+      .stat strong {
+        font-size: 1.05rem;
+      }
+
+      .stat span {
+        font-size: 0.82rem;
+      }
+
+      .hero-logo {
+        width: min(80vw, 320px);
+      }
+
+      .service-visual {
+        min-height: 150px;
+      }
+
+      .quick-item {
+        min-height: 0;
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-inner::before {
+        display: none;
+      }
+
+      .hero-stats {
         grid-template-columns: 1fr;
       }
 
@@ -996,12 +1005,115 @@
         grid-template-columns: 1fr;
       }
 
-      .stat {
-        min-height: auto;
+      .nav-cta span,
+      .nav-cta {
+        font-size: 0.92rem;
       }
 
-      .hero-logo {
-        width: min(92vw, 360px);
+      .brand-sub {
+        display: none;
+      }
+
+      .eyebrow {
+        font-size: 0.82rem;
+        padding: 6px 10px;
+      }
+
+      .hero-copy p {
+        font-size: 1rem;
+      }
+
+      .service-content,
+      .feature-card,
+      .cta-panel,
+      .quick-item {
+        padding: 18px;
+      }
+
+      .ticket-head {
+        flex-wrap: wrap;
+      }
+
+      .ticket-row {
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .footer {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .nav-cta {
+        padding: 8px 10px;
+      }
+
+      .nav-cta svg {
+        display: none;
+      }
+    }
+
+    @media (min-width: 600px) {
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .hero-actions .button,
+      .hero-actions .button-secondary {
+        flex: 1 1 220px;
+      }
+    }
+
+    @media (min-width: 720px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .quick-grid,
+      .services,
+      .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .emergency-inner {
+        grid-template-columns: 1fr auto;
+      }
+
+      .cta-panel {
+        grid-template-columns: minmax(0, 1.1fr) minmax(220px, auto);
+        align-items: center;
+      }
+
+      .cta-actions {
+        grid-auto-flow: row;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      }
+
+      .hero-visual {
+        justify-items: end;
+      }
+
+      .quick-grid,
+      .services,
+      .features {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .about-grid {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      :root {
+        --container: 1220px;
       }
     }
 
